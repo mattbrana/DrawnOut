@@ -1,0 +1,163 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+
+<img src="images/drawnoutlogo.png" width="275" draggable="false"/>
+
+<label class="unselectable">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+<label class="colorLabel"> Color Selector 
+<input type="color" id="myColor" name="color"
+           value="#000000" @onchange="@UpdateColor"></label>
+    
+
+<label class="unselectable">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+
+<button @onclick="clickedErase">
+    Erase
+
+</button>
+
+<label class="unselectable">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+<button @onclick="clearCanvas">
+    Clear Canvas
+</button>
+
+<label class="unselectable">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+<!-- Rounded switch -->
+<label class="switch">
+    <input type="checkbox" name="grid" @bind="checkedValue"> 
+    <span class="slider round"></span> 
+</label>
+ 
+
+
+@if(checkedValue==true)
+        {
+            <style>
+                table, th, td {
+                    border: 1px solid;
+                    border-color: lightgray;
+                }</style>
+        }
+@if(checkedValue==false)
+        {
+            <style>
+                table, th, td {
+                    border: 0px solid;
+                    border-color: white;
+                }
+                td{
+                    height: 27px;
+                    width: 31px;
+                }
+
+                </style>
+        }
+
+@if (data_initialized)
+{
+    
+    <table>
+        @for (int i = 0; i < 26; i++)
+        {
+            int locali = i;
+            <tr>
+                @for (int j = 0; j <55; j++)
+                {
+
+                    int localj = j;
+                    <td class="unselectable" style="background-color: rgb(@data[i,j].red, @data[i,j].green, @data[i,j].blue);" 
+                    draggable="true" @ondragover="() => clicked(locali,localj)" @onclick="() => clicked(locali,localj)">
+                       
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+   
+}
+
+
+
+
+@code {
+    bool checkedValue = true;
+    private byte current_red = 0;
+    private byte current_green = 0;
+    private byte current_blue = 0;
+
+
+    private Pixel[,] data = new Pixel[26,55];
+    private bool data_initialized = false;
+
+
+    private void UpdateColor(ChangeEventArgs e)
+    {
+       
+        System.Drawing.Color c = System.Drawing.ColorTranslator.FromHtml(e.Value.ToString());
+        current_red = c.R;
+        current_green = c.G;
+        current_blue = c.B;
+
+
+    }
+
+    private void clickedErase()
+    {
+        current_red = 255;
+        current_green = 255;
+        current_blue = 255;
+    }
+
+    private void clearCanvas()
+    {
+        for (int i = 0; i < 26; i++)
+        {
+            for (int j = 0; j <55; j++)
+            {
+                data[i, j] = new Pixel();
+                data[i, j].red = 255;
+                data[i, j].green = 255;
+
+                data[i, j].blue = 255;
+
+            }
+        }
+    }
+
+    private void clicked(int i, int j )
+    {
+        
+    
+        data[i, j].red = current_red;
+        data[i, j].green = current_green;
+        data[i, j].blue = current_blue;
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        for (int i =0;i <26;i++)
+        {
+            for (int j = 0; j <55; j++)
+            {
+                data[i, j] = new Pixel();
+                data[i,j].red = 255;
+                data[i, j].green = 255;
+
+                data[i, j].blue = 255;
+
+            }
+        }
+        data_initialized = true;
+
+    }
+
+
+}
