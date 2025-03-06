@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150">
+  <!-- Background -->
+  <rect width="400" height="150" fill="#2a2a2a" rx="10" ry="10"/>
+  
+  <!-- "DRAWN" text in pixel style -->
+  <!-- D -->
+  <rect x="50" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="60" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="70" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="50" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="80" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="50" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="80" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="50" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="80" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="50" y="80" width="10" height="10" fill="#ffffff"/>
+  <rect x="60" y="80" width="10" height="10" fill="#ffffff"/>
+  <rect x="70" y="80" width="10" height="10" fill="#ffffff"/>
+  
+  <!-- R -->
+  <rect x="100" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="110" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="120" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="100" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="130" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="100" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="110" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="120" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="100" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="120" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="100" y="80" width="10" height="10" fill="#ffffff"/>
+  <rect x="130" y="80" width="10" height="10" fill="#ffffff"/>
+  
+  <!-- A -->
+  <rect x="150" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="160" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="170" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="150" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="180" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="150" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="160" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="170" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="180" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="150" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="180" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="150" y="80" width="10" height="10" fill="#ffffff"/>
+  <rect x="180" y="80" width="10" height="10" fill="#ffffff"/>
+  
+  <!-- W -->
+  <rect x="200" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="240" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="200" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="240" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="200" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="220" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="240" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="200" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="220" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="240" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="210" y="80" width="10" height="10" fill="#ffffff"/>
+  <rect x="230" y="80" width="10" height="10" fill="#ffffff"/>
+  
+  <!-- N -->
+  <rect x="260" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="300" y="40" width="10" height="10" fill="#ffffff"/>
+  <rect x="260" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="270" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="300" y="50" width="10" height="10" fill="#ffffff"/>
+  <rect x="260" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="280" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="300" y="60" width="10" height="10" fill="#ffffff"/>
+  <rect x="260" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="290" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="300" y="70" width="10" height="10" fill="#ffffff"/>
+  <rect x="260" y="80" width="10" height="10" fill="#ffffff"/>
+  <rect x="300" y="80" width="10" height="10" fill="#ffffff"/>
+  
+  <!-- "OUT" text in pixel style -->
+  <!-- O -->
+  <rect x="140" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="150" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="130" y="110" width="10" height="10" fill="#2196F3"/>
+  <rect x="160" y="110" width="10" height="10" fill="#2196F3"/>
+  <rect x="130" y="120" width="10" height="10" fill="#2196F3"/>
+  <rect x="160" y="120" width="10" height="10" fill="#2196F3"/>
+  <rect x="130" y="130" width="10" height="10" fill="#2196F3"/>
+  <rect x="160" y="130" width="10" height="10" fill="#2196F3"/>
+  <rect x="140" y="140" width="10" height="10" fill="#2196F3"/>
+  <rect x="150" y="140" width="10" height="10" fill="#2196F3"/>
+  
+  <!-- U -->
+  <rect x="180" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="210" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="180" y="110" width="10" height="10" fill="#2196F3"/>
+  <rect x="210" y="110" width="10" height="10" fill="#2196F3"/>
+  <rect x="180" y="120" width="10" height="10" fill="#2196F3"/>
+  <rect x="210" y="120" width="10" height="10" fill="#2196F3"/>
+  <rect x="180" y="130" width="10" height="10" fill="#2196F3"/>
+  <rect x="210" y="130" width="10" height="10" fill="#2196F3"/>
+  <rect x="190" y="140" width="10" height="10" fill="#2196F3"/>
+  <rect x="200" y="140" width="10" height="10" fill="#2196F3"/>
+  
+  <!-- T -->
+  <rect x="230" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="240" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="250" y="100" width="10" height="10" fill="#2196F3"/>
+  <rect x="240" y="110" width="10" height="10" fill="#2196F3"/>
+  <rect x="240" y="120" width="10" height="10" fill="#2196F3"/>
+  <rect x="240" y="130" width="10" height="10" fill="#2196F3"/>
+  <rect x="240" y="140" width="10" height="10" fill="#2196F3"/>
+  
+  <!-- Paintbrush icon -->
+  <rect x="320" y="50" width="10" height="10" fill="#e74c3c"/>
+  <rect x="330" y="60" width="10" height="10" fill="#e74c3c"/>
+  <rect x="340" y="70" width="10" height="10" fill="#e74c3c"/>
+  <rect x="350" y="80" width="10" height="10" fill="#e74c3c"/>
+  <rect x="350" y="90" width="10" height="10" fill="#8B4513"/>
+  <rect x="350" y="100" width="10" height="10" fill="#8B4513"/>
+  <rect x="350" y="110" width="10" height="10" fill="#8B4513"/>
+  
+  <!-- Paint drips -->
+  <rect x="320" y="60" width="10" height="10" fill="#e74c3c" opacity="0.7"/>
+  <rect x="340" y="80" width="10" height="10" fill="#e74c3c" opacity="0.7"/>
+  <rect x="330" y="100" width="10" height="10" fill="#e74c3c" opacity="0.5"/>
+</svg>
