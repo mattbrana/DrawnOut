@@ -1,38 +1,350 @@
-.App {
-  text-align: center;
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  background-color: #121212;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pixel-art-app {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+/* Controls Bar */
+.controls-bar {
+  padding: 15px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 0 #1a1a1a;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 3px solid #000;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 20px;
+  user-select: none;
+  filter: drop-shadow(2px 2px 0 #000);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  background: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #1a1a1a, inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.control-group:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #1a1a1a, inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.control-label {
+  margin-right: 12px;
+  user-select: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 2px 2px 0 #000;
+  letter-spacing: 1px;
+}
+
+.color-input {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.tool-button {
+  padding: 8px 16px;
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 1px 1px 0 #000;
+  box-shadow: 0 4px 0 #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.App-link {
-  color: #61dafb;
+.tool-button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.tool-button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.erase-button {
+  background-color: #e74c3c;
+}
+
+.erase-button:hover {
+  background-color: #c0392b;
+}
+
+.clear-button {
+  background-color: #7f8c8d;
+}
+
+.clear-button:hover {
+  background-color: #636e6f;
+}
+
+.size-selector {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #000;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.size-selector:focus {
+  outline: none;
+  border-color: #2196F3;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  margin-left: 8px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #444;
+  transition: 0.4s;
+  border-radius: 34px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(28px);
+}
+
+/* Canvas Container */
+.canvas-container {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+  background-color: #1a1a1a;
+  background-image: 
+    linear-gradient(45deg, #222 25%, transparent 25%), 
+    linear-gradient(-45deg, #222 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #222 75%),
+    linear-gradient(-45deg, transparent 75%, #222 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pixel-grid {
+  border-collapse: collapse;
+  margin: 20px auto;
+  box-shadow: 0 0 0 4px #000, 0 0 0 8px #333;
+}
+
+.pixel {
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+}
+
+.pixel:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* Pixel Art Color Selector Styles - already in your CSS */
+.pixel-color-selector {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #1a1a1a, inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-right: 15px;
+  transition: all 0.2s ease;
+}
+
+.pixel-color-selector:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #1a1a1a, inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.pixel-color-selector span {
+  font-family: 'Courier New', monospace;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 2px 2px 0 #000;
+  margin-right: 12px;
+  letter-spacing: 1px;
+}
+
+.color-input-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fff;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.color-input-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.color-input-wrapper input[type="color"] {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.color-input-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-input-wrapper input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .controls-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .control-group {
+    margin-bottom: 10px;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+/* Controls Bar - Updated to match dark theme */
+.controls-bar {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #2a2a2a; /* Changed from white to dark theme */
+  box-shadow: 0 4px 0 #1a1a1a; /* Added 3D effect */
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 3px solid #000;
+}
+
+/* Adjusting control labels to match the pixel art theme */
+.controls-bar .control-label {
+  color: #ffffff; /* Changed from default to white */
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+  user-select: none;
+}
+
+/* Making other direct children of controls-bar match theme if not in a group */
+.controls-bar > *:not(.control-group):not(.pixel-color-selector) {
+  color: #ffffff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* Responsive adjustments - keep as is */
+@media (max-width: 768px) {
+  .controls-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  
+  .control-group {
+    margin-bottom: 10px;
+    margin-right: 0;
   }
 }
